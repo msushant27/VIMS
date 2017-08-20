@@ -1,12 +1,12 @@
-<div class='supplierForm'>
+<div style="text-align: center; background-image: url('images/3.jpg');height: 100%">
     <form name="supplierForm" #supplierForm="ngForm">
         <!--<div *ngIf="successMessage" [ngClass]="'success'"> Search for {{supplier.supplier_make}} {{supplier.supplier_model}} </div>-->
         <!--<div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>-->
         <h1>{{title}}</h1>
         <p class="form-group">
             <p>
-                <label >Make</label>
-                <select name=make (change)="getMake($event.target.value)">
+                <label ><a>MAKE</a></label>
+                <select name=make (change)="getMake($event.target.value)" required>
                                 <option value='' >--Select--</option>
                                 <option *ngFor="let make of makes" value="{{make}}">
                                     {{make}}
@@ -18,8 +18,8 @@
                        <!--[(ngModel)]="supplier_make" name="supplier_make" #make="ngModel"-->
                        </p>
             <p>
-                <label >Model</label>
-                <select name=model (change)="getModel($event.target.value)">
+                <label ><a>MODEL</a></label>
+                <select  name=model (change)="getModel($event.target.value) " required>
                                 <option value=''>--Select--</option>
                                 <option *ngFor="let model of models" value="{{model}}">
                                     {{model}}
@@ -34,8 +34,8 @@
 
             </p>
 <p>
-            <label for="quantity">Quantity</label>
-            <input type="number" class="form-control" id="quantity" min="0"  required
+            <label for="quantity"><a>QUANTITY</a></label>
+            <input type="number" class="form-control" id="quantity" min="0"  required value="value>0"
                    [(ngModel)]="car.qty" name="quantity" #quantity="ngModel" ></p>
             <div *ngIf="quantity.errors && (quantity.dirty || quantity.touched)" class="alert alert-danger">
                 <div [hidden]="!quantity.errors.required">
@@ -47,25 +47,25 @@
             </div>
 
 
-            <input type='button' value='Search' (click)='searchCars();' [disabled]="!supplierForm.form.valid"/>
+            <input type='button' class="button" value='Search' (click)='searchCars();' [disabled]="!supplierForm.form.valid"/>
 
     </form>
 
-        <table *ngIf="editted==true" class="supplierList">
-            <div *ngIf="successMessage" [ngClass]="'success'"> {{car.make}} {{car.model}} Added.</div>
-            <div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>
+        <table *ngIf="editted==true" >
+            <!--<div *ngIf="successMessage" [ngClass]="'success'"> {{car.make}} {{car.model}} Added.</div>-->
+            <!--<div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>-->
             <thead>
-            <tr><th>Supplier Id</th><th>Supplier Name</th><th>Supplier Make</th><th>Supplier Model</th><th>Supplier Logo</th><th>Supplier Price</th></tr>
+            <tr><th>SUPPLIER ID</th><th>SUPPLIER NAME</th><th>MAKE</th><th>MODEL</th><th>PRICE</th><th>LOGO</th></tr>
             </thead>
             <tbody>
             <tr  *ngFor="let supplier of suppliers">
-                <td>{{supplier.supplier_id}} </td>
-                <td>{{supplier.supplier_name}}</td>
-                <td>{{supplier.supplier_make}}</td>
-                <td>{{supplier.supplier_model}}</td>
-                <td>{{supplier.supplier_price}}</td>
+                <td><b>{{supplier.supplier_id}}</b> </td>
+                <td><b>{{supplier.supplier_name}}</b></td>
+                <td><b>{{supplier.supplier_make}}</b></td>
+                <td><b>{{supplier.supplier_model}}</b></td>
+                <td><b>{{supplier.supplier_price}}</b></td>
                 <td><img width="100" height="100" [src]="imageUrl+supplier.supplier_logo"></td>
-                <td><input type='button' value='Add'  (click)="addCar(supplier)"/>
+                <td><input class="button" type='button' value='Add'  (click)="addCar(supplier.supplier_price)"/>
                 </td>
 
             </tr>

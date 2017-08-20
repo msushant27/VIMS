@@ -64,11 +64,14 @@ let CarSearchComponent = class CarSearchComponent {
             this.successMessage = res.toString();
             console.log(res.text());
             this.errorMessage = "";
+            if (this.successMessage) {
+                this.searchCars();
+                window.alert("Deleted successfully!");
+            }
         }, error => {
             this.errorMessage = error;
             this.successMessage = "";
         });
-        this.searchCars();
     }
 };
 CarSearchComponent = __decorate([

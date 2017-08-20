@@ -8,7 +8,7 @@ import {DataService} from "./dataservice.service";
 @Component({
     selector: 'supplier',
     templateUrl: '../partials/suppliersearch.component.html',
-    // styleUrls:['../css/cars.component.css'],
+    styleUrls:['../css/suppliersearch.component.styles.css'],
 })
 
 export class SupplierSearchComponent {
@@ -59,11 +59,18 @@ export class SupplierSearchComponent {
                 // this.successMessage = res.toString();
                 this.suppliers = res.json();
                 console.log(this.suppliers);
+                // if(this.suppliers.length==0){
+                //     this.editted=false;
+                //     window.alert("No record found!!");
+                // }
                 this.errorMessage = ""
             },
             error => {
                 // this.errorMessage = <any>error;
                 this.successMessage = ""
+                if(this.errorMessage){
+                    window.alert("No records found!!!");
+                }
             });
     }
 
@@ -92,16 +99,18 @@ export class SupplierSearchComponent {
 
     }
 
-    addCar(supplier: Supplier) {
+    addCar(supplier_price:any) {
         console.log("Inside addCar()!!!!"+ this.car.price);
         let addUrl = "/rest/add";
 
         console.log(this.car);
-        console.log(supplier);
+        console.log(supplier_price);
 
 
         this.car.make = this.fieldMake;
         this.car.model = this.fieldModel;
+        this.car.price=supplier_price;
+        this.car.logo=this.car.make + '-'+this.car.model+'.png';
 
         var requestHeaders = new Headers({'Content-Type': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});
@@ -110,6 +119,9 @@ export class SupplierSearchComponent {
         this.http.post(addUrl, this.car, options).subscribe(
             res => {
                 this.successMessage = res.toString();
+                if(this.successMessage){
+                    window.alert("Added successfully!!");
+                }
                 console.log(res.text());
                 this.errorMessage = ""
             },

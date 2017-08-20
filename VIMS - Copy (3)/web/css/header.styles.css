@@ -2,6 +2,8 @@
     background-image: url("home.jpg");
 
 }*/
+
+
 thead{
     background-color: green;
     border: 1px solid black;
@@ -10,6 +12,10 @@ thead{
     font-size: 500%;
     height: 100%;
     width: 100%;
+}
+a{
+    text-decoration: none;
+    color: #5e5e5e;
 }
 td {
     background-color: beige;

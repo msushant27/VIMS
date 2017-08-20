@@ -89,13 +89,17 @@ export class CarSearchComponent implements  OnInit{
                 this.successMessage = res.toString();
                 console.log(res.text());
                 this.errorMessage = ""
+                if(this.successMessage){
+                    this.searchCars();
+                    window.alert("Deleted successfully!");
+                }
             },
             error => {
                 this.errorMessage = <any>error;
                 this.successMessage = ""
             });
 
-        this.searchCars();
+
     }
 
     }

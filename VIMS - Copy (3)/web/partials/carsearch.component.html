@@ -1,34 +1,34 @@
-<div class="bg">
-    <select name="searchField" [(ngModel)]="searchField" class="align">
-        <option value="">--Select--</option>
+<div class="bg" style="background-image: url('images/home1.jpg');height: 100%">
+    <select style="margin-left: 40%;margin-bottom: 2%;margin-top: 2%" class="option" name="searchField" [(ngModel)]="searchField" >
+        <option  value="">--Select--</option>
         <option value="make">Make</option>
         <option value="model">Model</option>
     </select>
-    <input type="text" [(ngModel)]="searchFieldValue"  />
-    <input type="button" value="GO" (click)="searchCars();" />
+    <input class="option" type="text" [(ngModel)]="searchFieldValue"  />
+    <input type="button" class="button" value="GO" (click)="searchCars();" />
 
     <table class="table" >
-        <div *ngIf="successMessage" [ngClass]="'success'"> deleted successfully</div>
-        <div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>
+        <!--<div *ngIf="successMessage" [ngClass]="'success'"> deleted successfully</div>-->
+        <!--<div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>-->
         <thead>
-            <tr><th>Logo</th><th>Make</th><th>Model</th><th>Quantity</th></tr>
+            <tr><th><b>LOGO</b></th><th>MAKE</th><th>MODEL</th><th>QUANTITY</th><th></th><th></th></tr>
         </thead>
         <tbody>
             <tr *ngFor="let car of cars ">
 
                 <td><img width="100" height="100" [src]="imageUrl+car.logo"></td>
-                <td >{{car.make}}</td>
-                <td >{{car.model}}</td>
-                <td >{{car.qty}}</td>
-                <td *ngIf="car.qty <=3">!!!!ALERT!!!Stock below threshold</td>
-                <td *ngIf="car.qty <=3">  <button value="Add" routerLink="/add">Add</button></td>
+                <td ><b>{{car.make}}</b></td>
+                <td ><b>{{car.model}}</b></td>
+                <td ><b>{{car.qty}}</b></td>
+                <td  *ngIf="car.qty <=3"><b class="alert">!!!!ALERT!!!<br/>Stock below threshold</b></td>
+                <td *ngIf="car.qty <=3">  <button class="button"value="Add" routerLink="/add">Add</button></td>
 
-                <td  *ngIf="car.qty >3 && editted===false" ><button value="delete1" (click)="show()">delete</button></td>
+                <td  *ngIf="car.qty >3 && editted===false" ><button class="button" value="delete1" (click)="show()">Delete</button></td>
 
 
 
-                <td *ngIf="car.qty >3&&editted===true"><input type="text" placeholder="quantity to delete" [(ngModel)]="qty"  />
-                <td *ngIf="car.qty >3&&editted===true"> <input type="button" value="delete"(click)="deleteCars(car.vin,qty);" /></td>
+                <td *ngIf="car.qty >3&&editted===true"><input  type="text" placeholder="quantity to delete" [(ngModel)]="qty"  />
+                <td *ngIf="car.qty >3&&editted===true"> <input class="button" type="button" value="Delete" (click)="deleteCars(car.vin,qty);" /></td>
             </tr>
         </tbody>
     </table>
