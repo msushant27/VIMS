@@ -1,0 +1,10 @@
+<div class = 'carForm'>
+    <form name="carForm" #carForm="ngForm">
+<table>
+    <tr><td> Model : </td><td><input type='text' [(ngModel)]='car.model' name="model" /><br/></td></tr>
+    <tr><td>  Quantity : </td><td>    <input type='number' [(ngModel)]='car.qty' name="quantity" /><br/></td></tr>
+     <tr><td colspan="2"> <input type='button' value='Look for suppliers' (click)='addCar();' [disabled]="!carForm.form.valid"/></td></tr>
+        <div *ngIf="successMessage" [ngClass] = "'success'"> {{car.make}} {{car.model}} Added. </div>
+</table>
+    </form>
+</div>

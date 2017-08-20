@@ -1,0 +1,35 @@
+<div class="bg">
+    <select name="searchField" [(ngModel)]="searchField" class="align">
+        <option value="">--Select--</option>
+        <option value="make">Make</option>
+        <option value="model">Model</option>
+    </select>
+    <input type="text" [(ngModel)]="searchFieldValue"  />
+    <input type="button" value="GO" (click)="searchCars();" />
+
+    <table class="table" >
+        <div *ngIf="successMessage" [ngClass]="'success'"> deleted successfully</div>
+        <div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>
+        <thead>
+            <tr><th>Logo</th><th>Make</th><th>Model</th><th>Quantity</th></tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of cars ">
+
+                <td><img width="100" height="100" [src]="imageUrl+car.logo"></td>
+                <td >{{car.make}}</td>
+                <td >{{car.model}}</td>
+                <td >{{car.qty}}</td>
+                <td *ngIf="car.qty <=3">!!!!ALERT!!!Stock below threshold</td>
+                <td *ngIf="car.qty <=3">  <button value="Add" routerLink="/add">Add</button></td>
+
+                <td  *ngIf="car.qty >3 && editted===false" ><button value="delete1" (click)="show()">delete</button></td>
+
+
+
+                <td *ngIf="car.qty >3&&editted===true"><input type="text" placeholder="quantity to delete" [(ngModel)]="qty"  />
+                <td *ngIf="car.qty >3&&editted===true"> <input type="button" value="delete"(click)="deleteCars(car.vin,qty);" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

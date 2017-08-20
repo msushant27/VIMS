@@ -1,0 +1,46 @@
+<!--<div>-->
+    <!--WELCOME TO INVENTORY MANAGEMENT SYSTEM-->
+<!--</div>-->
+
+<body>
+<table>
+
+
+    <tbody>
+    <!--<tr>-->
+        <!--<td width= "20%"><a routerLink="home">HOME</a></td>-->
+        <!--<td width= "20%"><a routerLink="add">BUY CARS</a></td>-->
+        <!--<td width= "20%"><a routerLink="view">VIEW INVENTORY</a></td>-->
+        <!--<td width= "20%">ABOUT US</td>-->
+        <!--<td width= "20%" >CONTACT</td>-->
+
+    <!--</tr>-->
+    <tr>
+        <td colspan="5"><router-outlet></router-outlet><img class="mySlides" src = "../images/home3.jpg" alt = "Home3 Image" width = "100%" height = "60%/">
+            <img class="mySlides" src="../images/home1.jpg" alt = "Home1 Image" width = "100%" height = "40%/">
+            <img class="mySlides" src="../images/home2.jpg" alt = "Home2 Image" width = "100%" height = "60%/">
+            <img class="mySlides" src="../images/home.jpg" alt = "Home Image" width = "100%" height = "60%/"></td>
+    </tr>
+    </tbody>
+    <tr >
+        <td class="foot" colspan="4">Copyright</td>
+    </tr>
+</table>
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>
+
+</body>

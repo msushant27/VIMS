@@ -1,0 +1,27 @@
+<div class='carDeleteForm'>
+    <form name="carDeleteForm" #carDeleteForm="ngForm">
+        <div *ngIf="successMessage" [ngClass]="'success'"> {{vin}} cars deleted</div>
+        <div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>
+        <table>
+            <thead>
+            <tr>
+                <td><h1>{{title}}</h1></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    Vin : <input type='number' [(ngModel)]='vin' name="vin"/><br/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Quantity : <input type='number' [(ngModel)]='qty' name="qty"/><br/>
+                    <input type='button' value='Delete' (click)='deleteCar();' [disabled]="!carDeleteForm.form.valid"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+

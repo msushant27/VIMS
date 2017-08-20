@@ -1,0 +1,26 @@
+.success{
+    color: green;
+    font-size: 20px;
+    /*transform: rotate(30deg);*/
+}
+.error{
+    color: red;
+    font-size: 20px;
+}
+
+.alert {
+    background-color: red;
+}
+
+
+.alert .alert-danger{
+    color: red;
+    font-size: 20px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+}

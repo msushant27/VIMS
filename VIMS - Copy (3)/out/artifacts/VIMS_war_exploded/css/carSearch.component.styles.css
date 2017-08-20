@@ -1,0 +1,83 @@
+@import "common.styles.css";
+
+.bg {
+    margin: auto;
+}
+.table{
+    margin: auto;
+    background-color:white;
+    border-color: black;
+    text-align: center;
+    align-self: center;
+    height: 100%;
+    width: 50%;
+}
+.table th{
+    height:100px;
+    background-color: chartreuse;
+    text-align: center;
+    color: white;
+
+}
+.table td{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:100%;
+}
+.button{
+    background-color: chartreuse;
+    border: solid;
+    border-color: #5e5e5e;
+    color: white;
+    height: 20%;
+    width: 40%;
+}
+.align{
+    margin: auto;
+
+
+}
+
+/*.carForm {*/
+    /*border:8px inset rgba(50,50,60,0.8);*/
+    /*width:50%;*/
+    /*text-align:center;*/
+/*}*/
+
+/*.carForm h1{*/
+    /*color:Black;*/
+    /*width:90%;*/
+    /*margin:auto;*/
+    /*margin-top:10px;*/
+    /*margin-bottom:10px;*/
+/*}*/
+
+/*.carForm .form-group{*/
+
+/*}*/
+
+
+/*.carForm .form-control{*/
+    /*background-color:rgba(100,100,50,0.3);*/
+    /*color:white;*/
+    /*text-align:center;*/
+    /*height:30px;*/
+    /*font-size:26px;*/
+    /*width:50%;*/
+    /*margin:auto;*/
+    /*margin-top:10px;*/
+    /*margin-bottom:10px;*/
+    /*border-radius:20px;*/
+/*}*/
+
+/*.carForm input[type=button]{*/
+    /*background-color:black;*/
+    /*width:30%;*/
+    /*height:40px;*/
+/*}*/
+
+/*.carForm input[type=number]{*/
+    /*margin-left:1px;*/
+    /*background-color:rgba(100,100,50,0.3);*/
+    /*height:30px;*/
+    /*width:30%;*/
+/*}*/

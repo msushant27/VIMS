@@ -1,0 +1,21 @@
+<div class = 'carForm'>
+    <form name="supplierForm" #supplierForm="ngForm">
+        <table class="table" >
+            <thead>
+            <tr>{{title}}</tr>
+            <tr><th>Supplier Name</th><th>Make</th><th>Model</th><th>Price</th><th> <input type="button" value="GO" (click)="searchSuppliers();" /></th></tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let supplier of suppliers">
+                <td>{{supplier.name}}</td>
+                <td>{{supplier.make}}</td>
+                <td>{{supplier.model}}</td>
+                <td>{{supplier.price}}</td>
+                <td><input type="button" value="Buy" (click)="add();" /></td>
+            </tr>
+            </tbody>
+        </table><table>
+
+</table>
+    </form>
+</div>
