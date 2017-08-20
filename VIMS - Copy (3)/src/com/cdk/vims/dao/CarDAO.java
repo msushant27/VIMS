@@ -21,28 +21,12 @@ public class CarDAO {
 
 
     public int save(Car car) {
-//        int id = car.getVin();
-//        Car car1 = entityManager.find(Car.class, id);
-//        if (car1 != null) {
-//            car1.setQty(car1.getQty()+car.getQty());
-//            entityManager.merge(car1);
-//        } else
-            entityManager.persist(car);
+
+        entityManager.persist(car);
         return car.getVin();
 
     }
 
-//    public int save(Car car) {
-//        String model = car.getModel();
-//        Car car1 = entityManager.find(Car.class, model);
-//        if (car1 != null) {
-//            car1.setQty(car1.getQty()+car.getQty());
-//            entityManager.merge(car1);
-//        } else
-//            entityManager.persist(car);
-//        return car.getVin();
-//
-//    }
 
     public Collection<Car> getCars(String field, String fieldValue) {
         return (entityManager.createQuery("from com.cdk.vims.model.Car where " + field + "='" + fieldValue + "' order by " + field)).getResultList();
@@ -73,7 +57,4 @@ public class CarDAO {
 
     }
 
-//    public int saveCar(String make, String model, String price, String logo) {
-//        entityManager.createQuery("insert into Car()");
-//    }
 }

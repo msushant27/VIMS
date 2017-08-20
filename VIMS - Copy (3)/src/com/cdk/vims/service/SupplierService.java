@@ -9,12 +9,16 @@ import java.util.Collection;
 
 @Service
 public class SupplierService {
+
     @Autowired
     SupplierDAO supplierDAO;
 
     public Collection<Supplier> searchSuppliers(String supplier_make, String supplier_model) {
-        return supplierDAO.getSuppliers(supplier_make,supplier_model);
+        return supplierDAO.getSuppliers(supplier_make, supplier_model);
     }
 
+    public void setSupplierDAO(SupplierDAO supplierDAO) {
+        this.supplierDAO = supplierDAO;
+    }
 }
 

@@ -14,23 +14,22 @@ public class CarService {
     @Autowired
     CarDAO carDAO;
 
-    //@Transactional
     public Collection<Car> readAllCars() {
         return carDAO.getAllCars();
     }
 
     @Transactional
-    public int save(Car car){
+    public int save(Car car) {
         return carDAO.save(car);
     }
 
     public Collection<Car> readCars(String field, String fieldValue) {
-        return carDAO.getCars(field,fieldValue);
+        return carDAO.getCars(field, fieldValue);
     }
 
     @Transactional
-    public void remove(int id,int qty){
-        carDAO.delete(id,qty);
+    public void remove(int id, int qty) {
+        carDAO.delete(id, qty);
     }
 
     public Collection<String> readMake() {
@@ -41,7 +40,8 @@ public class CarService {
         return carDAO.getModel(make1);
     }
 
-//    public int saveCar(String make, String model, String price, String logo) {
-//        return carDAO.saveCar(make,model,price,logo);
-//    }
+    public void setCarDAO(CarDAO carDAO) {
+        this.carDAO = carDAO;
+    }
+
 }

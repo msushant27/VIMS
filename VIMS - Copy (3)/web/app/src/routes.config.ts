@@ -9,10 +9,9 @@ import {SupplierSearchComponent} from "./suppliersearch.component";
 
 let routes:Routes = [
     {path:'home',component:HomeComponent},
-    {path:'add',component:SupplierSearchComponent},
     {path:'sell',component:CarDeleteComponent},
+    {path:'add',component:SupplierSearchComponent},
     {path:'view',component:CarSearchComponent},
-    // {path:'supplier',component:SupplierSearchComponent},
     {path:'',redirectTo:'/home',pathMatch:'full'},
 ];
 

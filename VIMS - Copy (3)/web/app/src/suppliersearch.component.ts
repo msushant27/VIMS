@@ -56,17 +56,11 @@ export class SupplierSearchComponent {
 
         this.http.get(addUrl, options).subscribe(
             res => {
-                // this.successMessage = res.toString();
                 this.suppliers = res.json();
                 console.log(this.suppliers);
-                // if(this.suppliers.length==0){
-                //     this.editted=false;
-                //     window.alert("No record found!!");
-                // }
                 this.errorMessage = ""
             },
             error => {
-                // this.errorMessage = <any>error;
                 this.successMessage = ""
                 if(this.errorMessage){
                     window.alert("No records found!!!");
@@ -93,7 +87,6 @@ export class SupplierSearchComponent {
     getModel(event: any) {
 
         console.log(event);
-        // var searchURL = "/rest/make/"+event.t;
         this.fieldModel = event;
 
 
@@ -115,7 +108,6 @@ export class SupplierSearchComponent {
         var requestHeaders = new Headers({'Content-Type': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});
 
-        //this.http.post(addUrl,this.car,options).subscribe(res => this.successMessage = res.toString());
         this.http.post(addUrl, this.car, options).subscribe(
             res => {
                 this.successMessage = res.toString();

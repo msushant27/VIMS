@@ -10,12 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require("@angular/core");
 const http_1 = require("@angular/http");
-const car_1 = require("./car");
 let CarSellComponent = class CarSellComponent {
     constructor(http) {
         this.http = http;
         this.title = "Car Sell";
-        this.car = new car_1.Car('Audi', 'A4', 400000, 'audi-a4.png');
+        // this.car = new Car('Audi','A4',400000,'audi-a4.png');
     }
 };
 CarSellComponent = __decorate([

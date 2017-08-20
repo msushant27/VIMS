@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {Http,Headers,RequestOptions} from "@angular/http";
 
-import {Suppliers} from "./suppliers";
+// import {Suppliers} from "./suppliers";
 import {Car} from "./car";
 
 @Component({

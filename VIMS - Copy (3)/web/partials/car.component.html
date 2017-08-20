@@ -1,11 +1,7 @@
 <div class='carForm'>
     <form name="carForm" #carForm="ngForm">
-        <!--<div *ngIf="successMessage" [ngClass]="'success'"> {{car.make}} {{car.model}} Added.</div>-->
-        <!--<div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>-->
         <h1>{{title}}</h1>
         <div class="form-group">
-
-
 
             <p><label >Make</label>
              <select name=make (change)="getMake($event.target.value)">
@@ -24,12 +20,6 @@
                                 {{trim}}
                             </option>
                         </select>
-            <!--<select >-->
-                <!--            <option value=''>&#45;&#45;Select&#45;&#45;</option>-->
-                <!--            <option *ngFor="let trim of model" value="{{trim}}">-->
-                <!--                {{trim}}-->
-                <!--            </option>-->
-                <!--        </select>-->
 
             <p><label for="quantity">Quantity</label>
                 <input type="number" class="form-control" id="quantity" min="0"  required minlength="1"
