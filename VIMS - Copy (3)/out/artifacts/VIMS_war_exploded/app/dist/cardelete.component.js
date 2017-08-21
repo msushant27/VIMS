@@ -20,8 +20,6 @@ let CarDeleteComponent = class CarDeleteComponent {
         console.log(this.vin);
         console.log(this.qty);
         let deleteUrl = "/rest/delete/" + this.vin + "/" + this.qty;
-        //var requestHeaders = new Headers({'Accept': 'text/plain'});
-        //var options = new RequestOptions({headers: requestHeaders});
         this.http.delete(deleteUrl, this.car).subscribe(res => {
             this.successMessage = res.toString();
             console.log(res.text());

@@ -1,7 +1,6 @@
 <div style="text-align: center; background-image: url('images/3.jpg');height: 100%">
     <form name="supplierForm" #supplierForm="ngForm">
-        <!--<div *ngIf="successMessage" [ngClass]="'success'"> Search for {{supplier.supplier_make}} {{supplier.supplier_model}} </div>-->
-        <!--<div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>-->
+
         <h1>{{title}}</h1>
         <p class="form-group">
             <p>
@@ -14,8 +13,6 @@
 
                             </select>
 
-                <!--<input type="text" class="form-control" id="supplier_make"-->
-                       <!--[(ngModel)]="supplier_make" name="supplier_make" #make="ngModel"-->
                        </p>
             <p>
                 <label ><a>MODEL</a></label>
@@ -26,16 +23,10 @@
                                 </option>
                             </select>
 
-
-                <!--<input type="text" class="form-control" id="supplier_model"-->
-
-                <!--[(ngModel)]="supplier_model" name="supplier_model" #odel="ngModel">-->
-
-
             </p>
 <p>
             <label for="quantity"><a>QUANTITY</a></label>
-            <input type="number" class="form-control" id="quantity" min="0"  required value="value>0"
+            <input type="number" class="form-control" id="quantity" min="1"  required
                    [(ngModel)]="car.qty" name="quantity" #quantity="ngModel" ></p>
             <div *ngIf="quantity.errors && (quantity.dirty || quantity.touched)" class="alert alert-danger">
                 <div [hidden]="!quantity.errors.required">
@@ -52,8 +43,7 @@
     </form>
 
         <table *ngIf="editted==true" >
-            <!--<div *ngIf="successMessage" [ngClass]="'success'"> {{car.make}} {{car.model}} Added.</div>-->
-            <!--<div *ngIf="errorMessage" [ngClass]="'error'"> {{errorMessage}}</div>-->
+
             <thead>
             <tr><th>SUPPLIER ID</th><th>SUPPLIER NAME</th><th>MAKE</th><th>MODEL</th><th>PRICE</th><th>LOGO</th></tr>
             </thead>

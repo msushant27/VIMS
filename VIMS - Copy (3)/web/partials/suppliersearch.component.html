@@ -26,19 +26,16 @@
             </p>
 <p>
             <label for="quantity"><a>QUANTITY</a></label>
-            <input type="number" class="form-control" id="quantity" min="0"  required value="value>0"
+            <input type="number" class="form-control" id="quantity" min="1"  required
                    [(ngModel)]="car.qty" name="quantity" #quantity="ngModel" ></p>
             <div *ngIf="quantity.errors && (quantity.dirty || quantity.touched)" class="alert alert-danger">
                 <div [hidden]="!quantity.errors.required">
                     Car quantity is required!
                 </div>
-                <div [hidden]="!quantity.errors.minlength">
-                    Quantity must be at least 1.
-                </div>
             </div>
 
 
-            <input type='button' class="button" value='Search' (click)='searchCars();' [disabled]="!supplierForm.form.valid"/>
+            <input type='button' class="button" value='Search' (click)='searchCars();' />
 
     </form>
 

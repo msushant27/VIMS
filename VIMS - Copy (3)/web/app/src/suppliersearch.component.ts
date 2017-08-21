@@ -51,7 +51,7 @@ export class SupplierSearchComponent {
         console.log("Inside searchCar()!!!!" );
         let addUrl = "/rest/search/" + this.fieldMake + "/" + this.fieldModel;
 
-        var requestHeaders = new Headers({'Content-Type': 'application/json'});
+        var requestHeaders = new Headers({'Accept': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});
 
         this.http.get(addUrl, options).subscribe(
@@ -102,7 +102,7 @@ export class SupplierSearchComponent {
 
         this.car.make = this.fieldMake;
         this.car.model = this.fieldModel;
-        this.car.price=supplier_price;
+        this.car.price=supplier_price*1.2;
         this.car.logo=this.car.make + '-'+this.car.model+'.png';
 
         var requestHeaders = new Headers({'Content-Type': 'application/json'});

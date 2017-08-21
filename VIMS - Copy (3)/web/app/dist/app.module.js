@@ -33,12 +33,8 @@ const platform_browser_1 = require('@angular/platform-browser');
 const forms_1 = require('@angular/forms');
 const http_1 = require('@angular/http');
 const routes_config_1 = require('./routes.config');
-const car_component_1 = require("./car.component");
-const login_component_1 = require("./login.component");
 const carsearch_component_1 = require("./carsearch.component");
-const cardetailsearch_component_1 = require("./cardetailsearch.component");
 const app_component_1 = require("./app.component");
-const cardelete_component_1 = require("./cardelete.component");
 const home_component_1 = require("./home.component");
 const suppliersearch_component_1 = require("./suppliersearch.component");
 let AppModule = class AppModule {
@@ -46,7 +42,7 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, routes_config_1.configuredRoutes],
-        declarations: [car_component_1.CarComponent, login_component_1.LoginComponent, carsearch_component_1.CarSearchComponent, cardetailsearch_component_1.CarDetailSearchComponent, home_component_1.HomeComponent, cardelete_component_1.CarDeleteComponent, suppliersearch_component_1.SupplierSearchComponent, app_component_1.AppComponent],
+        declarations: [carsearch_component_1.CarSearchComponent, home_component_1.HomeComponent, suppliersearch_component_1.SupplierSearchComponent, app_component_1.AppComponent],
         bootstrap: [app_component_1.AppComponent]
     }), 
     __metadata('design:paramtypes', [])

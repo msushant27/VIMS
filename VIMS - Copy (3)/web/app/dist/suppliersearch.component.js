@@ -30,7 +30,7 @@ let SupplierSearchComponent = class SupplierSearchComponent {
         this.editted = true;
         console.log("Inside searchCar()!!!!");
         let addUrl = "/rest/search/" + this.fieldMake + "/" + this.fieldModel;
-        var requestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var requestHeaders = new http_1.Headers({ 'Accept': 'application/json' });
         var options = new http_1.RequestOptions({ headers: requestHeaders });
         this.http.get(addUrl, options).subscribe(res => {
             this.suppliers = res.json();
@@ -65,7 +65,7 @@ let SupplierSearchComponent = class SupplierSearchComponent {
         console.log(supplier_price);
         this.car.make = this.fieldMake;
         this.car.model = this.fieldModel;
-        this.car.price = supplier_price;
+        this.car.price = supplier_price * 1.2;
         this.car.logo = this.car.make + '-' + this.car.model + '.png';
         var requestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: requestHeaders });

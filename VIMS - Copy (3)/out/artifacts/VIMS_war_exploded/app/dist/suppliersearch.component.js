@@ -30,19 +30,13 @@ let SupplierSearchComponent = class SupplierSearchComponent {
         this.editted = true;
         console.log("Inside searchCar()!!!!");
         let addUrl = "/rest/search/" + this.fieldMake + "/" + this.fieldModel;
-        var requestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var requestHeaders = new http_1.Headers({ 'Accept': 'application/json' });
         var options = new http_1.RequestOptions({ headers: requestHeaders });
         this.http.get(addUrl, options).subscribe(res => {
-            // this.successMessage = res.toString();
             this.suppliers = res.json();
             console.log(this.suppliers);
-            // if(this.suppliers.length==0){
-            //     this.editted=false;
-            //     window.alert("No record found!!");
-            // }
             this.errorMessage = "";
         }, error => {
-            // this.errorMessage = <any>error;
             this.successMessage = "";
             if (this.errorMessage) {
                 window.alert("No records found!!!");
@@ -62,7 +56,6 @@ let SupplierSearchComponent = class SupplierSearchComponent {
     }
     getModel(event) {
         console.log(event);
-        // var searchURL = "/rest/make/"+event.t;
         this.fieldModel = event;
     }
     addCar(supplier_price) {
@@ -76,7 +69,6 @@ let SupplierSearchComponent = class SupplierSearchComponent {
         this.car.logo = this.car.make + '-' + this.car.model + '.png';
         var requestHeaders = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: requestHeaders });
-        //this.http.post(addUrl,this.car,options).subscribe(res => this.successMessage = res.toString());
         this.http.post(addUrl, this.car, options).subscribe(res => {
             this.successMessage = res.toString();
             if (this.successMessage) {

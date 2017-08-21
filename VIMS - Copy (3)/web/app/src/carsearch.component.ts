@@ -28,18 +28,17 @@ export class CarSearchComponent implements  OnInit{
 
 
     ngOnInit() {
-        console.log("Inside searchCars2()!!!!");
 
-        var searchURL = "";
+        var searchURL = "/rest/cars";
 
-        console.log(this.searchField);
-        console.log(this.searchFieldValue);
+        // console.log(this.searchField);
+        // console.log(this.searchFieldValue);
 
-        if (this.searchField === "" && this.searchFieldValue === "") {
-            searchURL = "/rest/cars";
-        } else {
-            searchURL = "/rest/car/" + this.searchField + "/" + this.searchFieldValue;
-        }
+        // if (this.searchField === "" && this.searchFieldValue === "") {
+
+        // } else {
+        //     searchURL = "/rest/car/" + this.searchField + "/" + this.searchFieldValue;
+        // }
 
 
         var requestHeaders = new Headers({'Accept': 'application/json'});
@@ -80,9 +79,6 @@ export class CarSearchComponent implements  OnInit{
         console.log(" Id is " + id +"qty is" +qty);
 
         let deleteUrl = "/rest/delete/" + id +"/"+qty;
-
-        //var requestHeaders = new Headers({'Accept': 'text/plain'});
-        //var options = new RequestOptions({headers: requestHeaders});
 
         this.http.delete(deleteUrl,this.car).subscribe(
             res => {

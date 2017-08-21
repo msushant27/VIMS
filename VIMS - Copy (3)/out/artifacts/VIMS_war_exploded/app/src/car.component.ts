@@ -1,29 +1,27 @@
-
 import {Component} from "@angular/core";
-import {Http,Headers,RequestOptions} from "@angular/http";
-import { Router } from '@angular/router';
+import {Http, Headers, RequestOptions} from "@angular/http";
+import {Router} from '@angular/router';
 
 import {Car} from "./car";
 
 @Component({
-    selector:'add',
-    templateUrl:'../partials/car.component.html',
-    styleUrls:['../css/car.component.styles.css'],
+    selector: 'add',
+    templateUrl: '../partials/car.component.html',
+    styleUrls: ['../css/car.component.styles.css'],
 })
-export class CarComponent{
+export class CarComponent {
 
-    title:string ="Add Car";
-    car:Car;
-    make:string[];
-    model:string[];
-    fieldMake:string;
-    fieldModel:string;
-    successMessage:string;
-    errorMessage:string;
+    title: string = "Add Car";
+    car: Car;
+    make: string[];
+    model: string[];
+    fieldMake: string;
+    fieldModel: string;
+    successMessage: string;
+    errorMessage: string;
 
-    constructor(private http:Http,private router:Router) {
-        //this.car = new Car('Audi','A4',4300000,'audi-a4.png',10);
-        this.car = new Car('','',0,0,'');
+    constructor(private http: Http, private router: Router) {
+        this.car = new Car('', '', 0, 0, '');
         var searchURL = "";
 
         searchURL = "/rest/make";
@@ -35,7 +33,7 @@ export class CarComponent{
 
             this.make = res.json();
             console.log(this.make);
-        }) ;
+        });
     }
 
     addCar() {
@@ -46,24 +44,24 @@ export class CarComponent{
         var options = new RequestOptions({headers: requestHeaders});
 
         this.car.logo = this.fieldMake + '-' + this.fieldModel + '.png';
-        this.car.make=this.fieldMake;
-        this.car.model=this.fieldModel;
-        //this.http.post(addUrl,this.car,options).subscribe(res => this.successMessage = res.toString());
+        this.car.make = this.fieldMake;
+        this.car.model = this.fieldModel;
         this.http.post(addUrl, this.car, options).subscribe(
             res => {
                 this.successMessage = res.toString();
                 console.log(res.text());
-                this.errorMessage=""
+                this.errorMessage = ""
             },
             error => {
                 this.errorMessage = <any>error;
                 this.successMessage = ""
             });
     }
-    getMake(event:any){
+
+    getMake(event: any) {
         console.log(event);
-        var searchURL = "/rest/make/"+event;
-        this.fieldMake=event;
+        var searchURL = "/rest/make/" + event;
+        this.fieldMake = event;
 
         var requestHeaders = new Headers({'Accept': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});
@@ -72,23 +70,13 @@ export class CarComponent{
 
             this.model = res.json();
             console.log(this.model);
-        }) ;
+        });
 
     }
-    getModel(event:any){
 
+    getModel(event: any) {
         console.log(event);
-        // var searchURL = "/rest/make/"+event.t;
-        this.fieldModel=event;
-
-        // var requestHeaders = new Headers({'Accept': 'application/json'});
-        // var options = new RequestOptions({headers: requestHeaders});
-        //
-        // this.http.get(searchURL, options).subscribe(res => {
-        //
-        //     this.model = res.json();
-        //     console.log(this.model);
-        // }) ;
+        this.fieldModel = event;
 
     }
 }

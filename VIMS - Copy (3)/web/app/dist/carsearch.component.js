@@ -20,16 +20,13 @@ let CarSearchComponent = class CarSearchComponent {
         this.editted = false;
     }
     ngOnInit() {
-        console.log("Inside searchCars2()!!!!");
-        var searchURL = "";
-        console.log(this.searchField);
-        console.log(this.searchFieldValue);
-        if (this.searchField === "" && this.searchFieldValue === "") {
-            searchURL = "/rest/cars";
-        }
-        else {
-            searchURL = "/rest/car/" + this.searchField + "/" + this.searchFieldValue;
-        }
+        var searchURL = "/rest/cars";
+        // console.log(this.searchField);
+        // console.log(this.searchFieldValue);
+        // if (this.searchField === "" && this.searchFieldValue === "") {
+        // } else {
+        //     searchURL = "/rest/car/" + this.searchField + "/" + this.searchFieldValue;
+        // }
         var requestHeaders = new http_1.Headers({ 'Accept': 'application/json' });
         var options = new http_1.RequestOptions({ headers: requestHeaders });
         this.http.get(searchURL, options).subscribe(res => {
@@ -58,8 +55,6 @@ let CarSearchComponent = class CarSearchComponent {
     deleteCars(id, qty) {
         console.log(" Id is " + id + "qty is" + qty);
         let deleteUrl = "/rest/delete/" + id + "/" + qty;
-        //var requestHeaders = new Headers({'Accept': 'text/plain'});
-        //var options = new RequestOptions({headers: requestHeaders});
         this.http.delete(deleteUrl, this.car).subscribe(res => {
             this.successMessage = res.toString();
             console.log(res.text());
